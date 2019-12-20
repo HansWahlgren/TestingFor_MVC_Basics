@@ -1,0 +1,28 @@
+﻿@using MVC_Basics.Models
+@{
+    ViewData["Title"] = "Index";
+}
+    @*<a asp-action="FeverControll" asp-controller="FeverCheck" 10>Home</a>*@
+<h1>FeverCheck</h1>
+<a asp-action="Create"> Create</a>
+
+<table>
+    @if (ViewBag.FeverList != null)
+    {
+        @for (int i = 0; i < ((List<CheckFever>)ViewBag.FeverList).Count; i++)
+        {
+            <tr>
+                <td>@(((CheckFever)ViewBag.FeverList[i]).Id)</td>
+                <td>@(((CheckFever)ViewBag.FeverList[i]).Info)</td>
+            </tr>
+        }
+    }
+
+</table>
+
+
+@if (ViewBag.FeverList != null)
+{
+    <p>@ViewBag.FeverResult</p>
+}
+
